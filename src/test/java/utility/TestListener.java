@@ -22,6 +22,7 @@ public class TestListener implements ITestListener {
         extent = new ExtentReports();
         spark = new ExtentSparkReporter(reportPath);
         spark.config().setTheme(Theme.STANDARD);
+        spark.config().setDocumentTitle("Automation Report");
         extent.attachReporter(spark);
     }
 

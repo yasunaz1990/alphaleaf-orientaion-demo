@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import utility.Steps;
 import utility.UIActions;
 
 public class CreatePage extends UIActions {
@@ -23,11 +24,13 @@ public class CreatePage extends UIActions {
 
 
     public CreatePage selectUseCase() {
+        Steps.log("User has selected the [Breast Density] use case");
         selectOption(use_case, "Breast Density");
         return this;
     }
 
     public CreatePage prepareData() {
+        Steps.log("Preparing the Data");
         click(training_data);
         selectOption(training_data, "1000 Mammo images");
         click(augmentation);
@@ -39,6 +42,7 @@ public class CreatePage extends UIActions {
     }
 
     public CreatePage configureModel() {
+        Steps.log("Configuring the model");
         click(architecture);
         selectOption(architecture, "ResNet");
         click(sampling);
@@ -54,12 +58,14 @@ public class CreatePage extends UIActions {
     }
 
     public CreatePage startTraining() {
+        Steps.log("Model training has started");
         click(train_test_button);
         textHighlight(xpath("//div[@class='flex-header']"));
         return this;
     }
 
     public boolean veirfyModel() {
+        Steps.log("Model training has concluded, verifying the Model");
         waitUntilElementVisible(accuracy_overview);
         // Verify accuracy overview
         checkHighlight(accuracy_overview);

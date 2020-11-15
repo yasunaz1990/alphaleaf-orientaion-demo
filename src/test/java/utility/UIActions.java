@@ -350,7 +350,7 @@ public abstract class UIActions {
         builder.moveToElement(where).perform();
     }
 
-    public void moveToVewBotton() {
+    protected void moveToVewBotton() {
         WebElement where;
         Actions actions = new Actions(driver);
         where = waits.until(ExpectedConditions.visibilityOfElementLocated(xpath("//footer")));
@@ -385,10 +385,10 @@ public abstract class UIActions {
     }
 
 
-    public void highlight(WebElement element) {
+    protected void highlight(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
-        js.executeScript("arguments[0].setAttribute('style', 'border: 3px dashed #E6D0FF;');", element);
+        js.executeScript("arguments[0].setAttribute('style', 'border: 3px dashed #5D24C8;');", element);
     }
 
     protected void textHighlight(By locator) {

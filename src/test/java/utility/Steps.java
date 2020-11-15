@@ -24,4 +24,8 @@ public class Steps {
         String screenshot = ((TakesScreenshot)UIActions.driver).getScreenshotAs(OutputType.BASE64);
         testcase.addScreenCaptureFromBase64String(screenshot, message);
     }
+
+    public static void failed(String cause) {
+        testcase.fail(cause);
+    }
 }
